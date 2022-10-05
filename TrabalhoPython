@@ -82,33 +82,120 @@
 
 # print (listaNotas)
 
-#7) Faça um Programa que leia duas listas com 10 elementos cada. Gere uma terceira lista de 20
-#elementos, cujos valores deverão ser compostos pelos elementos intercalados das duas outras
-#listas.
-
-# lista1 = []
-# lista2 = []
-# listaInter = []
-
-# for i in range(10):
-# 	print ('lista 1: ')
-# 	lista1.append(input('Elemento: ' + str(i+1) + '\n'))
-
-# for j in range(10):
-# 	print ('lista 2: ')
-# 	lista2.append(input('Elemento: ' + str(i+1) + '\n'))
-
-# for m in range(10):
-# 	listaInter.append(lista1[m])
-# 	listaInter.append(lista2[m])
+#7) Faça um Programa que leia um vetor de 5 números inteiros, mostre a soma, a multiplicação e os números.
 
 
-# print (lista1)
-# print (lista2)
-# print (listaInter)
+# Uma lista com todos os números
+
+numeros = []
+
+# Onde está no loop
+
+i = 0
+
+# Loop apenas para voltar pro começo caso um número esteja inválido
+
+while len(numeros) != 5:
+
+   i += 1
+
+   print("Diga o número " + str(i) + "º:")
+
+   try:
+
+       numero = int(input())
+
+   except:
+
+       print("Número inválido.")
+
+       i -= 1
+
+       continue
+
+   numeros.append(numero)
+
+   
+
+# Mostrar os números
+
+print("Números: " + ", ".join(str(numero) for numero in numeros))
+
+# Para somar os números, use a função sum
+
+soma = sum(numeros)
+
+print("Soma: " + str(soma))
+
+# Para multiplicar, faça um loop
+
+multiplicacao = 1
+
+for numero in numeros:
+
+   multiplicacao = multiplicacao * numero
+
+print("Multiplicação: " + str(multiplicacao))
+
+#8)Faça um Programa que peça a idade e a altura de 5 pessoas, armazene cada informação no seu respectivo vetor. Imprima a idade e a altura na ordem inversa a ordem lida
+idades = []
+alturas = []
+for i in range(1, 6):
+    print('%dº Pessoa' %i)
+    idade = int(input('Digite a idade: '))
+    altura = float(input('Digite a altura: '))
+    idades.append(idade)
+    alturas.append(altura)
+
+print('Ordem inversa')
+print('Alturas')
+print(alturas[::-1])
+print('Idades')
+print(idades[::-1])
+
+print('Ordem lida')
+print('Alturas')
+print(alturas)
+
+print('Idades')
+print(idades)
+
+#9)Faça um Programa que leia um vetor A com 10 números inteiros, calcule e mostre a soma dos quadrados dos elementos do vetor.
+soma_dos_quadrados = 0
+for i in range(10):
+    soma_dos_quadrados += int(input(f"Digite o {i+1}º numero inteiro: ")) ** 2
+print(f"A soma dos quadrados dos numeros digitados é {soma_dos_quadrados}")
+
+#10)Faça um Programa que leia dois vetores com 10 elementos cada. Gere um terceiro vetor de 20 elementos, cujos valores deverão ser compostos pelos elementos intercalados dos dois outros vetores.
+vec1 = list()
+
+vec2 = list()
+
+vec3 = list()
+
+print('Primeiro Vetor')
+
+for i in range(10):
+
+ vec1.append(int(input(f'Digite o valor do {i+1}° elemento: ')))
 
 
-#8) Faça um programa que receba a temperatura média de cada mês do ano e armazene-as em uma
+print('\nSegundo Vetor')
+
+for i in range(10):
+
+ vec2.append(int(input(f'Digite o valor do {i+1}° elemento: ')))
+
+for i in range(10):
+
+ vec3.append(vec1[i])
+
+ vec3.append(vec2[i])
+
+#10)
+
+
+#13) Faça um programa que receba a temperatura média de cada mês do ano e armazene-as em uma
 #lista. Após isto, calcule a média anual das temperaturas e mostre todas as temperaturas acima da
 #média anual, e em que mês elas ocorreram (mostrar o mês por extenso: 1 – Janeiro, 2 – Fevereiro,
 #. . . ).
@@ -130,7 +217,7 @@
 # print('Media das temperaturas : Anual -> ' + str(media))
 # print('Meses com temperaturas acima da media: ' + str(acimaMedia))
 
-#9) Utilizando listas faça um programa que faça 5 perguntas para uma pessoa sobre um crime. As
+#14) Utilizando listas faça um programa que faça 5 perguntas para uma pessoa sobre um crime. As
 #perguntas são:
 #a) "Telefonou para a vítima?"
 #b) "Esteve no local do crime?"
@@ -267,6 +354,352 @@ while True:
 print("\n\nResultado final")
 for atleta in atletas:
     print(f"{atleta.get('nome')}: {atleta.get('media'):.1f} m")
+
+#13) Uma grande emissora de televisão quer fazer uma enquete entre os seus telespectadores para saber qual o melhor jogador após cada jogo. Para isto, faz-se necessário o desenvolvimento de um programa, que será utilizado pelas telefonistas, para a computação dos votos. Sua equipe foi contratada para desenvolver este programa, utilizando a linguagem de programação C++. Para computar cada voto, a telefonista digitará um número, entre 1 e 23, correspondente ao número da camisa do jogador. Um número de jogador igual zero, indica que a votação foi encerrada. Se um número inválido for digitado, o programa deve ignorá-lo, mostrando uma breve mensagem de aviso, e voltando a pedir outro número. Após o final da votação, o programa deverá exibir:
+#O total de votos computados;
+#Os númeos e respectivos votos de todos os jogadores que receberam votos;
+#O percentual de votos de cada um destes jogadores;
+#O número do jogador escolhido como o melhor jogador da partida, juntamente com o número de votos e o percentual de votos dados a ele.
+#Observe que os votos inválidos e o zero final não devem ser computados como votos. O resultado aparece ordenado pelo número do jogador. O programa deve fazer uso de arrays. O programa deverá executar o cálculo do percentual de cada jogador através de uma função. Esta função receberá dois parâmetros: o número de votos de um jogador e o total de votos. A função calculará o percentual e retornará o valor calculado. Abaixo segue uma tela de exemplo. O disposição das informações deve ser o mais próxima possível ao exemplo. Os dados são fictícios e podem mudar a cada execução do programa. Ao final, o programa deve ainda gravar os dados referentes ao resultado da votação em um arquivo texto no disco, obedecendo a mesma disposição apresentada na tela.
+#Enquete: Quem foi o melhor jogador?
+
+Número do jogador (0=fim): 9
+Número do jogador (0=fim): 10
+Número do jogador (0=fim): 9
+Número do jogador (0=fim): 10
+Número do jogador (0=fim): 11
+Número do jogador (0=fim): 10
+Número do jogador (0=fim): 50
+Informe um valor entre 1 e 23 ou 0 para sair!
+Número do jogador (0=fim): 9
+Número do jogador (0=fim): 9
+Número do jogador (0=fim): 0
+
+Resultado da votação:
+Foram computados 8 votos.
+Jogador Votos           %
+9               4               50,0%
+10              3               37,5%
+11              1               12,5%
+O melhor jogador foi o número 9, com 4 votos, correspondendo a 50% do total de votos.
+
+votos = [0]*23
+num = 1000
+num_votos = 0
+while num != 0:    
+    num = int(input("Digite o número do jogador (para finalizar a contabilização digite 0): "))
+    if num > 23:
+        print('Número inválido')
+        continue
+    else:
+        votos[num-1] = votos[num-1] + 1 
+        num_votos = num_votos + 1   
+        
+melhor = 0
+
+print('\nForam computados '+str(num_votos)+ ' votos!\n')
+
+print('Jogador  |   Votos   |    % de Votos   |')
+print('========================================')
+for idx in range(len(votos)):
+    if votos[idx] > 0: 
+    
+        if idx >= 10:
+            if votos[idx] < 10:
+                print(f'  {idx+1}     |     {votos[idx]}     |       {(votos[idx]/num_votos)*100:.2f}     |')
+            else:
+                print(f'  {idx+1}     |     {votos[idx]}    |       {(votos[idx]/num_votos)*100:.2f}     |')
+        else:
+            if votos[idx] < 10:
+                print(f'  {idx+1}      |     {votos[idx]}     |       {(votos[idx]/num_votos)*100:.2f}     |')
+            else:
+                print(f'  {idx+1}      |     {votos[idx]}    |       {(votos[idx]/num_votos)*100:.2f}     |')
+            
+    
+    if votos[idx] > votos[melhor]:
+        melhor = idx
+print('========================================')
+
+
+print(f'\nO melhor atleta foi o Camisa {idx+1}, com {votos[idx]} votos, correspondendo a {(votos[idx]/num_votos)*100:.2f} do total de votos')
+
+#14) Uma empresa de pesquisas precisa tabular os resultados da seguinte enquete feita a um grande quantidade de organizações:
+"Qual o melhor Sistema Operacional para uso em servidores?"
+
+As possíveis respostas são:
+1- Windows Server
+2- Unix
+3- Linux
+4- Netware
+5- Mac OS
+6- Outro
+Você foi contratado para desenvolver um programa que leia o resultado da enquete e informe ao final o resultado da mesma. O programa deverá ler os valores até ser informado o valor 0, que encerra a entrada dos dados. Não deverão ser aceitos valores além dos válidos para o programa (0 a 6). Os valores referentes a cada uma das opções devem ser armazenados num vetor. Após os dados terem sido completamente informados, o programa deverá calcular a percentual de cada um dos concorrentes e informar o vencedor da enquete. O formato da saída foi dado pela empresa, e é o seguinte:
+
+Sistema Operacional     Votos   %
+-------------------     -----   ---
+Windows Server           1500   17%
+Unix                     3500   40%
+Linux                    3000   34%
+Netware                   500    5%
+Mac OS                    150    2%
+Outro                     150    2%
+-------------------     -----
+Total                    8800
+
+O Sistema Operacional mais votado foi o Unix, com 3500 votos, correspondendo a 40% dos votos.
+
+opcoes = ['Windows Server', 'Unix', 'Linux', 'Netware', 'Mac OS', 'Outro']
+sistemas = [0] * 6
+while True:
+    while True:
+        opcao = int(input('Digite a opção: '))
+        if opcao > 6 or opcao < 0:
+            print('Opção inválida.')
+        else:
+            break
+    if opcao == 0:
+        break
+    sistemas[opcao - 1] = sistemas[opcao - 1] + 1
+
+
+print('Sistema Operacional     Votos  %')
+print('----------------------------------')
+cont = 0
+melhor = 0
+melhorSis = ''
+perc = 0
+for s in sistemas:
+    print('%s   %d   %.2f%%' % (opcoes[cont], s,(s * 100) / sum(sistemas) ))
+    if s > melhor:
+        melhor = s
+        melhorSis = opcoes[cont]
+        perc = (s * 100) / sum(sistemas)
+    cont += 1
+
+print('----------------------------------')
+print('Total   %d' % sum(sistemas))
+print('O Sistema Operacional mais votado foi o %s, com %d votos, correspondendo a %.2f dos votos.' % (melhorSis, melhor, perc))
+
+#15) As Organizações Tabajara resolveram dar um abono aos seus colaboradores em reconhecimento ao bom resultado alcançado durante o ano que passou. Para isto contratou você para desenvolver a aplicação que servirá como uma projeção de quanto será gasto com o pagamento deste abono.
+Após reuniões envolvendo a diretoria executiva, a diretoria financeira e os representantes do sindicato laboral, chegou-se a seguinte forma de cálculo:
+a.Cada funcionário receberá o equivalente a 20% do seu salário bruto de dezembro; a.O piso do abono será de 100 reais, isto é, aqueles funcionários cujo salário for muito baixo, recebem este valor mínimo; Neste momento, não se deve ter nenhuma preocupação com colaboradores com tempo menor de casa, descontos, impostos ou outras particularidades. Seu programa deverá permitir a digitação do salário de um número indefinido (desconhecido) de salários. Um valor de salário igual a 0 (zero) encerra a digitação. Após a entrada de todos os dados o programa deverá calcular o valor do abono concedido a cada colaborador, de acordo com a regra definida acima. Ao final, o programa deverá apresentar:
+O salário de cada funcionário, juntamente com o valor do abono;
+O número total de funcionário processados;
+O valor total a ser gasto com o pagamento do abono;
+O número de funcionário que receberá o valor mínimo de 100 reais;
+O maior valor pago como abono; A tela abaixo é um exemplo de execução do programa, apenas para fins ilustrativos. Os valores podem mudar a cada execução do programa.
+Projeção de Gastos com Abono
+============================
+
+Salário: 1000
+Salário: 300
+Salário: 500
+Salário: 100
+Salário: 4500
+Salário: 0
+
+Salário    - Abono    
+R$ 1000.00 - R$  200.00
+R$  300.00 - R$  100.00
+R$  500.00 - R$  100.00
+R$  100.00 - R$  100.00
+R$ 4500.00 - R$  900.00
+
+Foram processados 5 colaboradores
+Total gasto com abonos: R$ 1400.00
+Valor mínimo pago a 3 colaboradores
+Maior valor de abono pago: R$ 900.00
+
+print('Digite 0 para encerrar o programa')
+salarios = [] 
+while True:
+    salario = float(input('Salário: '))
+    if salario == 0:
+        break
+    salarios.append(salario)
+
+print('Projeção de Gastos com Abono')
+print('============================')
+
+print('Salário - Abono')
+abonos, minimo = 0, 0
+maior = 0
+for s in salarios:
+    abono = (salario * 20) / 100
+    if abono < 100:
+        abono = 100
+        minimo += 1
+    if abono > maior:
+        maior = abono
+    abonos += abono
+    print('R$ %.2f - R$ %.2f' % (s, abono))
+
+print('Foram processados %d colaboradores' % (sum(salarios)))
+print('Total gasto com abonos: R$ %.2f' % abonos)
+print('Valor mínimo pago a %d colaboradores' % minimo)
+print('Maior valor de abono pago: R$ %.2f' % maior)
+
+#16) Faça um programa que carregue uma lista com os modelos de cinco carros (exemplo de modelos: FUSCA, GOL, VECTRA etc). Carregue uma outra lista com o consumo desses carros, isto é, quantos quilômetros cada um desses carros faz com um litro de combustível. Calcule e mostre:
+O modelo do carro mais econômico;
+Quantos litros de combustível cada um dos carros cadastrados consome para percorrer uma distância de 1000 quilômetros e quanto isto custará, considerando um que a gasolina custe R$ 2,25 o litro. Abaixo segue uma tela de exemplo. O disposição das informações deve ser o mais próxima possível ao exemplo. Os dados são fictícios e podem mudar a cada execução do programa.
+Comparativo de Consumo de Combustível
+
+Veículo 1
+Nome: fusca
+Km por litro: 7
+Veículo 2
+Nome: gol
+Km por litro: 10
+Veículo 3
+Nome: uno
+Km por litro: 12.5
+Veículo 4
+Nome: Vectra
+Km por litro: 9
+Veículo 5
+Nome: Peugeout
+Km por litro: 14.5
+
+Relatório Final
+ 1 - fusca           -    7.0 -  142.9 litros - R$ 321.43
+ 2 - gol             -   10.0 -  100.0 litros - R$ 225.00
+ 3 - uno             -   12.5 -   80.0 litros - R$ 180.00
+ 4 - vectra          -    9.0 -  111.1 litros - R$ 250.00
+ 5 - peugeout        -   14.5 -   69.0 litros - R$ 155.17
+O menor consumo é do peugeout.
+
+modelos = []
+consumos = []
+
+for i in range(1, 6):
+    print('Veículo %d' % i)
+    modelos.append(input('Nome: '))
+    consumos.append(float(input('Km por litro: ')))
+
+print('Relatório Final')
+cont, custo = 0, 0
+gasto = 0
+menorModelo = ''
+menor = 0
+for m in modelos:
+    custo = 1000 / consumos[cont]
+    gasto = custo * 2.25
+    print('%s      - %.1f  -  %.1f litros  - R$ %.2f' % (m, consumos[cont], consumo, gasto))
+    if cont == 0:
+        menor = custo
+        menorModelo = m
+    if menor < custo:
+        menor = custo
+        menorModelo = m
+    cont += 1
+print('O menor consumo é do %s.' % (menorModelo))
+
+#17)Sua organização acaba de contratar um estagiário para trabalhar no Suporte de Informática, com a intenção de fazer um levantamento nas sucatas encontradas nesta área. A primeira tarefa dele é testar todos os cerca de 200 mouses que se encontram lá, testando e anotando o estado de cada um deles, para verificar o que se pode aproveitar deles.
+Foi requisitado que você desenvolva um programa para registrar este levantamento. O programa deverá receber um número indeterminado de entradas, cada uma contendo: um número de identificação do mouse o tipo de defeito:
+necessita da esfera;
+necessita de limpeza; a.necessita troca do cabo ou conector; a.quebrado ou inutilizado Uma identificação igual a zero encerra o programa. Ao final o programa deverá emitir o seguinte relatório:
+Quantidade de mouses: 100
+
+Situação                        Quantidade              Percentual
+1- necessita da esfera                  40                     40%
+2- necessita de limpeza                 30                     30%
+3- necessita troca do cabo ou conector  15                     15%
+4- quebrado ou inutilizado              15                     15%
+
+print('Defeitos:\n1 - Necessita de Esfera\n2 - Necessita de limpeza\n3 - Necessita troca de cabo ou conector\n4 - Quebrado ou inutilizado')
+defeitos_ = ['Necessita de Esfera','Necessita de limpeza','Necessita troca de cabo ou conector','Quebrado ou inutilizado']
+
+
+num_mouses = int(input('Quantos mouses defeituosos exeistem: '))
+defeitos = 4*[0]
+
+print('')
+for idx in range(num_mouses):
+    
+    validacao = True
+    while validacao:
+        defeito = int(input('Qual o código do problema do mouse '+str(idx+1)+': '))
+        if (defeito == 1) or (defeito == 2) or (defeito == 3) or (defeito == 4):
+            validacao = False
+        else:
+            print('Número inválido, tente outro!')
+    defeitos[defeito-1] = defeitos[defeito-1] + 1
+
+for idx in range(len(defeitos_)):
+    print(defeitos_[idx]+' - ' +str(defeitos[idx])+ 'defeitos - ' +str(defeitos[idx]*100/num_mouses)+'%' )
+
+#18) A ACME Inc., uma empresa de 500 funcionários, está tendo problemas de espaço em disco no seu servidor de arquivos. Para tentar resolver este problema, o Administrador de Rede precisa saber qual o espaço ocupado pelos usuários, e identificar os usuários com maior espaço ocupado. Através de um programa, baixado da Internet, ele conseguiu gerar o seguinte arquivo, chamado "usuarios.txt":
+alexandre       456123789
+anderson        1245698456
+antonio         123456456
+carlos          91257581
+cesar           987458
+rosemary        789456125
+Neste arquivo, o nome do usuário possui 15 caracteres. A partir deste arquivo, você deve criar um programa que gere um relatório, chamado "relatório.txt", no seguinte formato:
+
+ACME Inc.               Uso do espaço em disco pelos usuários
+------------------------------------------------------------------------
+Nr.  Usuário        Espaço utilizado     % do uso
+
+1    alexandre       434,99 MB             16,85%
+2    anderson       1187,99 MB             46,02%
+3    antonio         117,73 MB              4,56%
+4    carlos           87,03 MB              3,37%
+5    cesar             0,94 MB              0,04%
+6    rosemary        752,88 MB             29,16%
+
+ef toMB(tamanhoEmBytes):
+   tamanhoEmBytes = float(tamanhoEmBytes)
+   return (float(tamanhoEmBytes/(1024*1024)))
+   
+def percentualPorUsuario(lista, total):
+   percentual = (lista[3]/total)*100
+   #percentual = "{0:.2f}".format(percentual)
+   lista.insert((len(cadaUsuario)),percentual)
+
+def espacoMedioOcupado(lista, total):
+   media = 0
+   elementos = len(lista)
+   media = (total)/(elementos+1)
+   #media = "{0:.2f}".format(media)
+   return media
+
+#MAIN
+usuarios = []
+posicao = 1
+total = media = 0
+with open ("usuarios.txt","r") as arquivo:
+   valor = 0
+   for linha in arquivo:
+      usuarios.append(linha.split()) 
+
+   for cadaUsuario in usuarios:
+      cadaUsuario.insert(0,posicao)
+      valor = toMB(float(cadaUsuario[2]))
+      total += valor
+      cadaUsuario.insert((len(cadaUsuario)),valor)
+      posicao+=1
+
+   for cadaUsuario in usuarios:
+      percentualPorUsuario(cadaUsuario, total)
+
+media = espacoMedioOcupado(cadaUsuario,total)
+
+with open ("relatorio.txt","w") as arquivo:
+   arquivo.write("ACME Inc.               Uso do espaço em disco pelos usuários.\n")
+   arquivo.write("--------------------------------------------------------------\n")
+   arquivo.write("Nr.\tUsuário        \tEspaço utilizado\t% do uso\n\n")
+
+   for cadaUsuario in usuarios:
+      percentagem="{0:.2f}".format(round(cadaUsuario[3],2))
+      arquivo.write(str(cadaUsuario[0])+'\t'+"{:<15}".format(cadaUsuario[1])+'\t'+"{:<16}".format(percentagem)+'MB'+'\t'+"{0:.2f}".format(cadaUsuario[4])+'%'+'\n')
+
+   arquivo.write('\n\nEspaço Total Ocupado: ' + "{0:.2f}".format(total) + ' MB')
+   arquivo.write('\n\nEspaço médio Ocupado: ' + "{0:.2f}".format(media) + ' MB')
+   arquivo.close()
+
+with open ("relatorio.txt","r") as arquivo:
+   print(arquivo.read())
 
 
 
