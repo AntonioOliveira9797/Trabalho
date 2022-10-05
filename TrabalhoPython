@@ -167,32 +167,62 @@ for i in range(10):
 print(f"A soma dos quadrados dos numeros digitados é {soma_dos_quadrados}")
 
 #10)Faça um Programa que leia dois vetores com 10 elementos cada. Gere um terceiro vetor de 20 elementos, cujos valores deverão ser compostos pelos elementos intercalados dos dois outros vetores.
-vec1 = list()
+primeiro_vetor = []
+segundo_vetor = []
+terceiro_vetor = []
 
-vec2 = list()
+for posicao in range(10):
+    primeiro_vetor.append(input("Digite o elemento da "+str(posicao+1)+"ª posição do primeiro vetor: "))
 
-vec3 = list()
+for posicao in range(10):
+    segundo_vetor.append(input("Digite o elemento da "+str(posicao+1)+"ª posição do segundo vetor: "))
+    
+for indice in range(10):
+    terceiro_vetor.append(primeiro_vetor[indice])
+    terceiro_vetor.append(segundo_vetor[indice])
+    
+print(terceiro_vetor)
 
-print('Primeiro Vetor')
+#11)Altere o programa anterior, intercalando 3 vetores de 10 elementos cada.
+primeiro_vetor = []
+segundo_vetor = []
+terceiro_vetor = []
+quarto_vetor = []
 
-for i in range(10):
+for posicao in range(10):
+    primeiro_vetor.append(input("Digite o elemento da "+str(posicao+1)+"ª posição do primeiro vetor: "))
 
- vec1.append(int(input(f'Digite o valor do {i+1}° elemento: ')))
+for posicao in range(10):
+    segundo_vetor.append(input("Digite o elemento da "+str(posicao+1)+"ª posição do segundo vetor: "))
 
+for posicao in range(10):
+    terceiro_vetor.append(input("Digite o elemento da "+str(posicao+1)+"ª posição do terceiro vetor: "))
+    
+for indice in range(10):
+    quarto_vetor.append(primeiro_vetor[indice])
+    quarto_vetor.append(segundo_vetor[indice])
+    quarto_vetor.append(terceiro_vetor[indice])
+    
+print(quarto_vetor)
 
-print('\nSegundo Vetor')
+#12)Foram anotadas as idades e alturas de 30 alunos. Faça um Programa que determine quantos alunos com mais de 13 anos possuem altura inferior à média de altura desses alunos.
+idades = []
+alturas = []
+Contador = 0
+while Contador < 30:
+    idades.append(input("Digite a idade: "))
+    alturas.append((float(input("Digite a altura: "))))
+    print('Este é o' + str(Contador) + 'aluno')
+    Contador = Contador + 1
 
-for i in range(10):
+mediaAltura = sum(alturas)/len(alturas)
 
- vec2.append(int(input(f'Digite o valor do {i+1}° elemento: ')))
+quantidadeAlunos = 0
+for i in range(0, len(idades)):
+    if idades[i] > 13 and alturas[i] < mediaAltura:
+        quantidadeAlunos = quantidadeAlunos + 1
 
-for i in range(10):
-
- vec3.append(vec1[i])
-
- vec3.append(vec2[i])
-
-#10)
+print (str(quantidadeAlunos) + " alunos possuem mais de 13 anos e altura inferior a media de altura dos alunos")
 
 
 #13) Faça um programa que receba a temperatura média de cada mês do ano e armazene-as em uma
@@ -267,7 +297,7 @@ def gerarPerguntas():
     else:
         print ("Inocente")
 
-#10) Faça um programa que leia um número indeterminado de valores, correspondentes a notas,
+#15) Faça um programa que leia um número indeterminado de valores, correspondentes a notas,
 #encerrando a entrada de dados quando for informado um valor igual a -1 (que não deve ser
 #armazenado). Após esta entrada de dados, faça:
 #a) Mostre a quantidade de valores que foram lidos;
@@ -287,7 +317,7 @@ while valor != -1:
  valor = int(input("Digite a nota: "))
 print(notas, "\nfim")
 
-#11) Utilize uma lista para resolver o problema a seguir. Uma empresa paga seus vendedores com base em comissões. O vendedor recebe $200 por semana mais 9 por cento de suas vendas brutas daquela semana. Por exemplo, um vendedor que teve vendas brutas de $3000 em uma semana recebe $200 mais 9 por cento de $3000, ou seja, um total de $470. Escreva um programa (usando um array de contadores) que determine quantos vendedores receberam salários nos seguintes intervalos de valores:
+#16) Utilize uma lista para resolver o problema a seguir. Uma empresa paga seus vendedores com base em comissões. O vendedor recebe $200 por semana mais 9 por cento de suas vendas brutas daquela semana. Por exemplo, um vendedor que teve vendas brutas de $3000 em uma semana recebe $200 mais 9 por cento de $3000, ou seja, um total de $470. Escreva um programa (usando um array de contadores) que determine quantos vendedores receberam salários nos seguintes intervalos de valores:
 # $200 - $299
 # $300 - $399
 # $400 - $499
@@ -309,7 +339,7 @@ for salario in salarios:
 
 print(contagem_de_faixa_salarial)
 
-#12) Em uma competição de salto em distância cada atleta tem direito a cinco saltos. O resultado do atleta será determinado pela média dos cinco valores restantes. Você deve fazer um programa que receba o nome e as cinco distâncias alcançadas pelo atleta em seus saltos e depois informe o nome, os saltos e a média dos saltos. O programa deve ser encerrado quando não for informado o nome do atleta. A saída do programa deve ser conforme o exemplo abaixo:
+#17) Em uma competição de salto em distância cada atleta tem direito a cinco saltos. O resultado do atleta será determinado pela média dos cinco valores restantes. Você deve fazer um programa que receba o nome e as cinco distâncias alcançadas pelo atleta em seus saltos e depois informe o nome, os saltos e a média dos saltos. O programa deve ser encerrado quando não for informado o nome do atleta. A saída do programa deve ser conforme o exemplo abaixo:
 #Atleta: Rodrigo Curvêllo
 #Primeiro Salto: 6.5 m
 #Segundo Salto: 6.1 m
@@ -355,7 +385,7 @@ print("\n\nResultado final")
 for atleta in atletas:
     print(f"{atleta.get('nome')}: {atleta.get('media'):.1f} m")
 
-#13) Uma grande emissora de televisão quer fazer uma enquete entre os seus telespectadores para saber qual o melhor jogador após cada jogo. Para isto, faz-se necessário o desenvolvimento de um programa, que será utilizado pelas telefonistas, para a computação dos votos. Sua equipe foi contratada para desenvolver este programa, utilizando a linguagem de programação C++. Para computar cada voto, a telefonista digitará um número, entre 1 e 23, correspondente ao número da camisa do jogador. Um número de jogador igual zero, indica que a votação foi encerrada. Se um número inválido for digitado, o programa deve ignorá-lo, mostrando uma breve mensagem de aviso, e voltando a pedir outro número. Após o final da votação, o programa deverá exibir:
+#18) Uma grande emissora de televisão quer fazer uma enquete entre os seus telespectadores para saber qual o melhor jogador após cada jogo. Para isto, faz-se necessário o desenvolvimento de um programa, que será utilizado pelas telefonistas, para a computação dos votos. Sua equipe foi contratada para desenvolver este programa, utilizando a linguagem de programação C++. Para computar cada voto, a telefonista digitará um número, entre 1 e 23, correspondente ao número da camisa do jogador. Um número de jogador igual zero, indica que a votação foi encerrada. Se um número inválido for digitado, o programa deve ignorá-lo, mostrando uma breve mensagem de aviso, e voltando a pedir outro número. Após o final da votação, o programa deverá exibir:
 #O total de votos computados;
 #Os númeos e respectivos votos de todos os jogadores que receberam votos;
 #O percentual de votos de cada um destes jogadores;
@@ -423,7 +453,7 @@ print('========================================')
 
 print(f'\nO melhor atleta foi o Camisa {idx+1}, com {votos[idx]} votos, correspondendo a {(votos[idx]/num_votos)*100:.2f} do total de votos')
 
-#14) Uma empresa de pesquisas precisa tabular os resultados da seguinte enquete feita a um grande quantidade de organizações:
+#19) Uma empresa de pesquisas precisa tabular os resultados da seguinte enquete feita a um grande quantidade de organizações:
 "Qual o melhor Sistema Operacional para uso em servidores?"
 
 As possíveis respostas são:
@@ -480,7 +510,7 @@ print('----------------------------------')
 print('Total   %d' % sum(sistemas))
 print('O Sistema Operacional mais votado foi o %s, com %d votos, correspondendo a %.2f dos votos.' % (melhorSis, melhor, perc))
 
-#15) As Organizações Tabajara resolveram dar um abono aos seus colaboradores em reconhecimento ao bom resultado alcançado durante o ano que passou. Para isto contratou você para desenvolver a aplicação que servirá como uma projeção de quanto será gasto com o pagamento deste abono.
+#20) As Organizações Tabajara resolveram dar um abono aos seus colaboradores em reconhecimento ao bom resultado alcançado durante o ano que passou. Para isto contratou você para desenvolver a aplicação que servirá como uma projeção de quanto será gasto com o pagamento deste abono.
 Após reuniões envolvendo a diretoria executiva, a diretoria financeira e os representantes do sindicato laboral, chegou-se a seguinte forma de cálculo:
 a.Cada funcionário receberá o equivalente a 20% do seu salário bruto de dezembro; a.O piso do abono será de 100 reais, isto é, aqueles funcionários cujo salário for muito baixo, recebem este valor mínimo; Neste momento, não se deve ter nenhuma preocupação com colaboradores com tempo menor de casa, descontos, impostos ou outras particularidades. Seu programa deverá permitir a digitação do salário de um número indefinido (desconhecido) de salários. Um valor de salário igual a 0 (zero) encerra a digitação. Após a entrada de todos os dados o programa deverá calcular o valor do abono concedido a cada colaborador, de acordo com a regra definida acima. Ao final, o programa deverá apresentar:
 O salário de cada funcionário, juntamente com o valor do abono;
@@ -539,7 +569,7 @@ print('Total gasto com abonos: R$ %.2f' % abonos)
 print('Valor mínimo pago a %d colaboradores' % minimo)
 print('Maior valor de abono pago: R$ %.2f' % maior)
 
-#16) Faça um programa que carregue uma lista com os modelos de cinco carros (exemplo de modelos: FUSCA, GOL, VECTRA etc). Carregue uma outra lista com o consumo desses carros, isto é, quantos quilômetros cada um desses carros faz com um litro de combustível. Calcule e mostre:
+#21) Faça um programa que carregue uma lista com os modelos de cinco carros (exemplo de modelos: FUSCA, GOL, VECTRA etc). Carregue uma outra lista com o consumo desses carros, isto é, quantos quilômetros cada um desses carros faz com um litro de combustível. Calcule e mostre:
 O modelo do carro mais econômico;
 Quantos litros de combustível cada um dos carros cadastrados consome para percorrer uma distância de 1000 quilômetros e quanto isto custará, considerando um que a gasolina custe R$ 2,25 o litro. Abaixo segue uma tela de exemplo. O disposição das informações deve ser o mais próxima possível ao exemplo. Os dados são fictícios e podem mudar a cada execução do programa.
 Comparativo de Consumo de Combustível
@@ -594,7 +624,7 @@ for m in modelos:
     cont += 1
 print('O menor consumo é do %s.' % (menorModelo))
 
-#17)Sua organização acaba de contratar um estagiário para trabalhar no Suporte de Informática, com a intenção de fazer um levantamento nas sucatas encontradas nesta área. A primeira tarefa dele é testar todos os cerca de 200 mouses que se encontram lá, testando e anotando o estado de cada um deles, para verificar o que se pode aproveitar deles.
+#22)Sua organização acaba de contratar um estagiário para trabalhar no Suporte de Informática, com a intenção de fazer um levantamento nas sucatas encontradas nesta área. A primeira tarefa dele é testar todos os cerca de 200 mouses que se encontram lá, testando e anotando o estado de cada um deles, para verificar o que se pode aproveitar deles.
 Foi requisitado que você desenvolva um programa para registrar este levantamento. O programa deverá receber um número indeterminado de entradas, cada uma contendo: um número de identificação do mouse o tipo de defeito:
 necessita da esfera;
 necessita de limpeza; a.necessita troca do cabo ou conector; a.quebrado ou inutilizado Uma identificação igual a zero encerra o programa. Ao final o programa deverá emitir o seguinte relatório:
@@ -628,7 +658,7 @@ for idx in range(num_mouses):
 for idx in range(len(defeitos_)):
     print(defeitos_[idx]+' - ' +str(defeitos[idx])+ 'defeitos - ' +str(defeitos[idx]*100/num_mouses)+'%' )
 
-#18) A ACME Inc., uma empresa de 500 funcionários, está tendo problemas de espaço em disco no seu servidor de arquivos. Para tentar resolver este problema, o Administrador de Rede precisa saber qual o espaço ocupado pelos usuários, e identificar os usuários com maior espaço ocupado. Através de um programa, baixado da Internet, ele conseguiu gerar o seguinte arquivo, chamado "usuarios.txt":
+#23) A ACME Inc., uma empresa de 500 funcionários, está tendo problemas de espaço em disco no seu servidor de arquivos. Para tentar resolver este problema, o Administrador de Rede precisa saber qual o espaço ocupado pelos usuários, e identificar os usuários com maior espaço ocupado. Através de um programa, baixado da Internet, ele conseguiu gerar o seguinte arquivo, chamado "usuarios.txt":
 alexandre       456123789
 anderson        1245698456
 antonio         123456456
@@ -700,6 +730,23 @@ with open ("relatorio.txt","w") as arquivo:
 
 with open ("relatorio.txt","r") as arquivo:
    print(arquivo.read())
+
+#24)Faça um programa que simule um lançamento de dados. Lance o dado 100 vezes e armazene os resultados em um vetor . Depois, mostre quantas vezes cada valor foi conseguido. Dica: use um vetor de contadores(1-6) e uma função para gerar numeros aleatórios, simulando os lançamentos dos dados.
+from gerador_numeros import *
+
+def conta_n_vezes(*lanc_dados):
+    lancamentos = []
+    lancamentos = lanc_dados
+
+    for i in range(0,99):
+        resultado = re.match('1', lancamentos[i])
+        posicao = lancamentos[i]
+        if resultado is not None:
+            print("Nos lançamentos o numero 1 apareceu na(s) seguinte(s) posição(ões): %s" % posicao)
+lanc_dados = []
+lanc_dados = gera_lancamentos()
+
+conta_n_vezes(*lanc_dados)
 
 
 
